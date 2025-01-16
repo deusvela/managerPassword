@@ -63,8 +63,8 @@ const UploadPassModal = ({ isOpen, onClose, onSubmit }) => {
     setIsLoading(true);
 
     setTimeout(() => {
-      // const success = Math.random() > 0.5; // 50% успеха
-      const success = true;
+      const success = Math.random() > 0.5; // 50% успеха
+      // const success = true;
       if (success) {
         const newData = { companyName, password };
         onSubmit(newData); // Передаем данные через `onSubmit`

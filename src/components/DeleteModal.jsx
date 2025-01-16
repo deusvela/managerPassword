@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { X } from "lucide-react";
 
-const DeleteModaL = ({ isOpen, onClose, onConfirm }) => {
+const DeleteModaL = ({ isOpen, onClose, onConfirm, companyName }) => {
   const [isLoading, setIsLoading] = useState(false); // Состояние загрузки
   const [errorMessage, setErrorMessage] = useState(""); // Ошибка от "сервера"
 
@@ -13,8 +13,8 @@ const DeleteModaL = ({ isOpen, onClose, onConfirm }) => {
 
     // Имитация запроса к серверу
     setTimeout(() => {
-      //   const success = Math.random() > 0.5; // 50% успеха для примера
-      const success = true;
+      const success = Math.random() > 0.5; // 50% успеха для примера
+      // const success = true;
 
       if (success) {
         onConfirm(); // Удаление данных
@@ -42,7 +42,7 @@ const DeleteModaL = ({ isOpen, onClose, onConfirm }) => {
         </h2>
 
         <div>
-          Вы действительно хотите удалить данные о компании?
+          Вы действительно хотите удалить данные о компании {companyName}?
           <span>
             Это действие <b>нельзя</b> будет отменить.
           </span>

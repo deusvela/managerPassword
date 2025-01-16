@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DeleteModaL from "./DeleteModal";
 
-const DeleteButton = ({ onDelete }) => {
+const DeleteButton = ({ onDelete, companyName, id }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>
@@ -16,7 +16,8 @@ const DeleteButton = ({ onDelete }) => {
       <DeleteModaL
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        onConfirm={onDelete}
+        onConfirm={() => onDelete(id, companyName)}
+        companyName={companyName}
       />
     </>
   );

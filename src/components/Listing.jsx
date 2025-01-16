@@ -3,7 +3,7 @@ import DeleteButton from "./DeleteButton.jsx";
 import CopyButton from "./CopyButton.jsx";
 
 const Listing = ({ data, setData }) => {
-  const handleDelete = (id) => {
+  const handleDelete = (id, companyName) => {
     // Удаление компании из localStorage
     const updatedData = data.filter((item) => item.id !== id);
     setData(updatedData); // Обновление состояния
@@ -26,7 +26,11 @@ const Listing = ({ data, setData }) => {
             </div>
             <div className="flex flex-shrink-0 gap-x-2">
               <CopyButton password={item.password} />
-              <DeleteButton onDelete={() => handleDelete(item.id)} />
+              <DeleteButton
+                id={item.id}
+                companyName={item.companyName}
+                onDelete={handleDelete}
+              />
             </div>
           </li>
         ))}
